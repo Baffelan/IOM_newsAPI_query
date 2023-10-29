@@ -1,25 +1,22 @@
 
-using HTTP
-using JSON
-const URL = "http://eventregistry.org/api/v1/article/getArticles"
+function execute_query(q, key, page)
+    URL = "http://eventregistry.org/api/v1/article/getArticles"
 
-headers = Dict("Content-Type"=> "application/json","apiKey"=>ENV["NEWSAPIKEY"])
 
-function execute_query(url,q, key, page)
     headers = Dict("Content-Type"=> "application/json","apiKey"=>key)
-    paged_query = replace(JSON.json(q), "\{\$\}"=>string(page))
+    paged_query = replace(JSON.json(q), "{\$}"=>string(page))
     try
-        response = HTTP.get(url, headers, JSON.json(q))
-        return String(response.body)
+        response = HTTP.get(URL, headers, paged_query)
+        return JSON.parse(String(response.body))
     catch e
         return e
     end
 end
 
-arts = make_API_call(URL, q)
+# arts = make_API_call(URL, q)
 
-arts = JSON.parse(arts)
+# arts = JSON.parse(arts)
 
-for i in 1:100
-    println(arts["articles"]["results"][i]["url"])
-end
+# for i in 1:100
+#     println(arts["articles"]["results"][i]["url"])
+# end
