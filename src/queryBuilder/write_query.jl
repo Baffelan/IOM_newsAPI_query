@@ -18,7 +18,7 @@ function write_query(user, dates)
                 "keyword"=> Dict("\$or"=>keywords))]]
             )
             ),
-        "articlesPage"=> "\{\$\}",
+        "articlesPage"=> "{\$}",
         "articlesCount"=> 100,
         "articlesSortBy"=> "socialScore",
         "articlesSortByAsc"=> false,
