@@ -10,4 +10,6 @@ module IOM_newsAPI_query
     include("queryBuilder/write_query.jl")
 
     include("query_newsapi.jl")
+
+    export query_newsapi
 end
