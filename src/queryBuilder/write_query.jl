@@ -11,6 +11,8 @@ function write_query(user, dates)
         "query"=> Dict(
             "\$query"=> Dict(
                 "\$and"=> [Dict(
+                    isnothing(locations) ? "nada"=>"nada" : "locationUri"=>locations,
+                    isnothing(languages) ? "nada thing"=>"nada" : "lang"=>languages,
                     "dateStart"=> "$(dates[1])",
                     "dateEnd"=> "$(dates[2])"
                 ),
@@ -24,6 +26,7 @@ function write_query(user, dates)
         "articlesSortByAsc"=> false,
         "articlesArticleBodyLen"=> -1,
         "includeArticleSocialScore"=> true,
+        "includeArticleLocation"=>true,
         "resultType"=> "articles",
         "apiKey"=>authentication()
     )
