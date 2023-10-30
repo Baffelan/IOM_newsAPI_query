@@ -1,7 +1,7 @@
 
 # In: Location, keywords, date, language
 # Out: Iterable of articles
-function write_query(user, dates)
+function write_api_request(user, dates)
     kws = user["keywords"]
     keywords = kws["keywords"]
     locations = kws["locations"]
@@ -11,8 +11,8 @@ function write_query(user, dates)
         "query"=> Dict(
             "\$query"=> Dict(
                 "\$and"=> [Dict(
-                    isnothing(locations) ? "nada"=>"nada" : "locationUri"=>locations,
-                    isnothing(languages) ? "nada thing"=>"nada" : "lang"=>languages,
+                    isnothing(locations) ? "nada"=>"nada" : "locationUri"=>locations, # HACK 
+                    isnothing(languages) ? "nada thing"=>"nada" : "lang"=>languages,  # HACK
                     "dateStart"=> "$(dates[1])",
                     "dateEnd"=> "$(dates[2])"
                 ),

@@ -7,7 +7,7 @@ module IOM_newsAPI_query
     include("queryBuilder/authentication.jl")
     include("queryBuilder/calculate_pages.jl")
     include("queryBuilder/execute_query.jl")
-    include("queryBuilder/write_query.jl")
+    include("queryBuilder/write_api_request.jl")
 
     include("query_newsapi.jl")
 

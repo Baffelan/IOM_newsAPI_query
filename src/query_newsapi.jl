@@ -1,6 +1,6 @@
 function query_newsapi(user, dates, num_articles)
 
-    query_str = write_query(user, dates)
+    query_str = write_api_request(user, dates)
     res_pg_1 = execute_query(query_str, authentication(),1) # Query 1 first, as it returns the total number of articles from a query
 
     num_pages = calculate_pages(res_pg_1, num_articles)
