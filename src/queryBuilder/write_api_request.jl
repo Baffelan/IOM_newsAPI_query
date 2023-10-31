@@ -9,16 +9,7 @@ function write_api_request(user, dates)
     q = Dict(
         "action"=>action(),
         "query"=> Dict(
-            "\$query"=> Dict(
-                "\$and"=> [Dict(
-                    isnothing(locations) ? "nada"=>"nada" : "locationUri"=>locations, # HACK 
-                    isnothing(languages) ? "nada thing"=>"nada" : "lang"=>languages,  # HACK
-                    "dateStart"=> "$(dates[1])",
-                    "dateEnd"=> "$(dates[2])"
-                ),
-                "\$or"=>[Dict(
-                "keyword"=> Dict("\$or"=>keywords))]]
-            )
+            write_filter_query(dates, keywords, languages=languages, locations=locations)
             ),
         "articlesPage"=> "{\$}",
         "articlesCount"=> 100,
