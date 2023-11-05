@@ -5,7 +5,9 @@ keywords = kws["keywords"]
 locations = kws["locations"]
 languages = kws["languages"]
 # Arguments
-- `user::Dict`: Built to be compatible with the `user` table. It must have the field "keywords"=>Dict()...
+- `user::Dict`: Built to be compatible with the `user` table. It must have the field "keywords"=>Dict("keywords", "locations", "languages") (TODO: Remove explicit need for languages fields, consider keeping keywords and locations to prevent accidentally querying large numbers of results.)
+- `dates::Tuple{Date}`: (startDate, endDate) of query.
+- `num_articles::Int`: Maximum number of articles queried (rounded up to nearest 100 as there are 100 articles per page and each query costs the same). 
 """
 
 function query_newsapi(user, dates, num_articles)
