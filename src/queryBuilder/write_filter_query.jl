@@ -7,7 +7,7 @@ TODO:
 
 # Arguments
 - `dates::Tuple{Date}`: A tuple containing the start and end date of the query. This is not an optional argument to prevent accidentally querying far in the past, which is extremely expensive.
-- jtnsahtnsj
+- 
 """
 function write_filter_query(dates, keywords; languages=nothing, locations=nothing)
     "\$query"=> Dict(

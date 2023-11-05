@@ -1,3 +1,13 @@
+"""
+Writes and executes a query to the eventregistry articles API.
+kws = user["keywords"]
+keywords = kws["keywords"]
+locations = kws["locations"]
+languages = kws["languages"]
+# Arguments
+- `user::Dict`: Built to be compatible with the `user` table. It must have the field "keywords"=>Dict()...
+"""
+
 function query_newsapi(user, dates, num_articles)
 
     query_str = write_api_request(user, dates)
