@@ -1,4 +1,11 @@
+"""
+Runs the a query to the eventregistry article api. Returns a dictionary of the response body.
 
+# Arguments
+- `q::Dict`: A dictionary containing the query. The dictionay is parsed to a JSON string as it is sent to the API.
+- `key::String`: API key.
+- `page::Int`: The page that is queried from the API. Each page contains 100 articles.
+"""
 function execute_query(q, key, page)
     URL = "http://eventregistry.org/api/v1/article/getArticles"
 
@@ -12,11 +19,3 @@ function execute_query(q, key, page)
         return e
     end
 end
-
-# arts = make_API_call(URL, q)
-
-# arts = JSON.parse(arts)
-
-# for i in 1:100
-#     println(arts["articles"]["results"][i]["url"])
-# end
