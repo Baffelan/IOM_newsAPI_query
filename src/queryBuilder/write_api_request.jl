@@ -1,7 +1,7 @@
 
 # In: Location, keywords, date, language
 # Out: Iterable of articles
-function write_api_request(user, dates)
+function write_api_request(user, dates, sortby)
     kws = user["keywords"]
     keywords = kws["keywords"]
     locations = kws["locations"]
@@ -13,7 +13,7 @@ function write_api_request(user, dates)
             ),
         "articlesPage"=> "{\$}",
         "articlesCount"=> 100,
-        "articlesSortBy"=> "socialScore",
+        "articlesSortBy"=> sortby,
         "articlesSortByAsc"=> false,
         "articlesArticleBodyLen"=> -1,
         "includeArticleSocialScore"=> true,
