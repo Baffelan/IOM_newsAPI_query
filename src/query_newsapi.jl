@@ -13,7 +13,7 @@ languages = kws["languages"]
 
 function query_newsapi(user, dates, num_articles, sortby)
 
-    query_str = isnothing(sortby) ? write_api_request(user, dates) : write_api_request(user, dates, sortby)
+    query_str = isnothing(sortby) ? write_api_request(user, dates) : write_api_request(user, dates, sortby=sortby)
     res_pg_1 = execute_query(query_str, authentication(),1) # Query 1 first, as it returns the total number of articles from a query
 
     num_pages = calculate_pages(res_pg_1, num_articles)
