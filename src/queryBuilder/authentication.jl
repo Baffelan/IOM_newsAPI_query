@@ -1,3 +1,7 @@
 function authentication()
-    ENV["NEWSAPIKEY"]
+    try
+        ENV["NEWSAPIKEY"]
+    catch e
+        throw(e)
+    end
 end
