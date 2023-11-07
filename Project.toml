@@ -1,7 +1,7 @@
 name = "IOM_newsAPI_query"
 uuid = "2f70e6e1-4b7e-452a-8221-497046ae2690"
 authors = ["Connor Smith"]
-version = "1.0.1-DEV"
+version = "1.0.2-DEV"
 
 [deps]
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"

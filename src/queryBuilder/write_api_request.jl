@@ -1,7 +1,7 @@
 
 # In: Location, keywords, date, language
 # Out: Iterable of articles
-function write_api_request(user, dates, sortby)
+function write_api_request(user, dates; sortby="SocialScore")
     kws = user["keywords"]
     keywords = kws["keywords"]
     locations = kws["locations"]
