@@ -19,7 +19,11 @@ function query_newsapi(user, dates, num_articles, sortby)
     num_pages = calculate_pages(res_pg_1, num_articles)
 
     res_pgs = execute_query.([query_str],[authentication()], 2:num_pages) # In future, this might be parralellised
-    vcat(res_pg_1["articles"]["results"], [res["articles"]["results"] for res in res_pgs]...)
+    
+    all_pages = vcat(res_pg_1["articles"]["results"], [res["articles"]["results"] for res in res_pgs]...)
+
+    filtered = filter_userhaspermissions.(all_pages)
+    return filtered
 end
 
 
