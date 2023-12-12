@@ -6,10 +6,12 @@ function write_api_request(user, dates; sortby="SocialScore")
     keywords = kws["keywords"]
     locations = kws["locations"]
     languages = kws["languages"]
+    concept = kws["concept"]
+    source = kws["source"]
     q = Dict(
         "action"=>action(),
         "query"=> Dict(
-            write_filter_query(dates, keywords, languages=languages, locations=locations)
+            write_filter_query(dates, keywords=keywords, languages=languages, locations=locations, concept=concept, source=source)
             ),
         "articlesPage"=> "{\$}",
         "articlesCount"=> 100,
@@ -21,5 +23,6 @@ function write_api_request(user, dates; sortby="SocialScore")
         "resultType"=> "articles",
         "apiKey"=>authentication()
     )
+    return q
     
 end
