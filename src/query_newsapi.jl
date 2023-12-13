@@ -10,7 +10,6 @@ languages = kws["languages"]
 - `num_articles::Int`: Maximum number of articles queried (rounded up to nearest 100 as there are 100 articles per page and each query costs the same). 
 - `sortby::String`: The value to sort article return order by.
 """
-
 function query_newsapi(user::Dict, dates::Tuple{Date, Date}, num_articles::Int, sortby::String)
 
     query_str = isnothing(sortby) ? write_api_request(user, dates) : write_api_request(user, dates, sortby=sortby)
