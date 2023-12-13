@@ -23,7 +23,7 @@ TODO:
 
 filter_nothings(A) = [a for a in A if !isnothing(a[2]["\$or"])]
 
-function write_filter_query(dates::Tuple{Date, Date}; languages=nothing, locations=nothing, keywords=nothing, concept=nothing, source=nothing)
+function write_filter_query(dates::Tuple{Date, Date}; languages=nothing, locations=nothing, keywords=nothing, concepts=nothing, sources=nothing)
 
     "\$query"=> Dict(
                 "\$and"=> [
@@ -34,8 +34,8 @@ function write_filter_query(dates::Tuple{Date, Date}; languages=nothing, locatio
                 ),
 
                 filter_nothings(["keyword"=>Dict("\$or"=>keywords),
-                "conceptUri"=>Dict("\$or"=>concept),
-                "sourceUri"=>Dict("\$or"=>source)])...
+                "conceptUri"=>Dict("\$or"=>concepts),
+                "sourceUri"=>Dict("\$or"=>sources)])...
                 
                 ]
             )
