@@ -12,7 +12,7 @@ function write_api_request(user, dates; sortby="SocialScore")
     sources = haskey(kws, "sources") ? kws["sources"] : nothing
 
     if all(isnothing.([keywords, concepts]))
-        throw("Must have at least one of 'keywords', 'concepts', or 'sources'")
+        throw("Must have at least one of 'keywords', or 'concepts'")
     end
     
 
