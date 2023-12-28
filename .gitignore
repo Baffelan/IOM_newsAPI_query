@@ -1,2 +1,4 @@
 /Manifest.toml
 src/working.jl
+*.csv
+*.json
