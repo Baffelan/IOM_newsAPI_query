@@ -43,4 +43,4 @@ arts = query_newsapi(user, (today()-Day(2),today()), 5, "SocialScore")
 | title | String | article's title | "Desperate Obama Tries to Reset Agenda with New Staff"
 | dateTime | DateTime | datetime when we found and serialized the article in UTC timezone. Each next article added to Event Registry will have a higher value | 2013-12-18T11:40:00Z |
 | authors | JSON | list of article's authors | [{"uri": "john_doe@techcrunch.com", "name":"John Doe", "type":"author", "isAgency": false},...] |
-| TODO: categories | TODO | TODO | TODO |
+| categories | JSON | All categories identified in the article. See the category data model [here](https://www.newsapi.ai/documentation?tab=data_models) | [{"label":{"eng":"Cardiology"},"uri":"http://en.wikipedia.org/wiki/Cardiology","score":5,"type":"wiki"},{"label":{"eng":"Hospital General Universitario Gregorio Marañón"},"uri":"http://en.wikipedia.org/wiki/Hospital_General_Universitario_Gregorio_Marañón","score":4,"type":"wiki"}] |
