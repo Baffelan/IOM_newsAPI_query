@@ -1,4 +1,7 @@
-function calculate_pages(result, max_articles)
+function calculate_pages(result, max_articles; debug=false)
+    if debug
+        println(result)
+    end
     if length(result)!=0
         pages = ceil(min(result["articles"]["totalResults"],max_articles)//100) # 100 is the number of articles on each page
         return convert(Int, pages)

@@ -10,12 +10,15 @@ languages = kws["languages"]
 - `num_articles::Int`: Maximum number of articles queried (rounded up to nearest 100 as there are 100 articles per page and each query costs the same). 
 - `sortby::String`: The value to sort article return order by.
 """
-function query_newsapi(user::Dict, dates::Tuple{Date, Date}, num_articles::Int, sortby::String)
+function query_newsapi(user::Dict, dates::Tuple{Date, Date}, num_articles::Int, sortby::String; debug=false)
 
     query_str = isnothing(sortby) ? write_api_request(user, dates) : write_api_request(user, dates, sortby=sortby)
+    if debug
+        println(JSON.json(query_str))
+    end
     res_pg_1 = execute_query(query_str, authentication(),1) # Query 1 first, as it returns the total number of articles from a query
 
-    num_pages = calculate_pages(res_pg_1, num_articles)
+    num_pages = calculate_pages(res_pg_1, num_articles, debug=debug)
 
     res_pgs = execute_query.([query_str],[authentication()], 2:num_pages) # In future, this might be parralellised
     
