@@ -12,6 +12,9 @@ module IOM_newsAPI_query
 
     include("filter_userhaspermissions.jl")
     include("query_newsapi.jl")
+    include("query_newsapi_helper.jl")
+
+    include("splitKeywords/split_keywords.jl")
 
     export query_newsapi
 end
