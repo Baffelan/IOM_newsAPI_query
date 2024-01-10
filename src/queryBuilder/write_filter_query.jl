@@ -1,6 +1,6 @@
 """
 Constructs the logic of the query. That is, the section of the newsAPI request that filters for keywords, dates, etc.
-Strictly filters, that is, as you increase the number of parameters, the number of returned articles will decrease.
+
 TODO:
     add better defaults to kwargs
 
@@ -33,9 +33,9 @@ function write_filter_query(dates::Tuple{Date, Date}; languages=nothing, locatio
                     "dateEnd"=> "$(dates[2])"
                 ),
 
-                filter_nothings(["keyword"=>Dict("\$or"=>keywords),
+                "\$or"=>[filter_nothings(["keyword"=>Dict("\$or"=>keywords),
                 "conceptUri"=>Dict("\$or"=>concepts),
-                "sourceUri"=>Dict("\$or"=>sources)])...
+                "sourceUri"=>Dict("\$or"=>sources)])...]
                 
                 ]
             )
