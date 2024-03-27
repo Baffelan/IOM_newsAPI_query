@@ -34,9 +34,8 @@ function write_filter_query(dates::Tuple{Date, Date}; languages=nothing, locatio
                 ),
 
                 "\$or"=>[filter_nothings(["keyword"=>Dict("\$or"=>keywords),
-                "conceptUri"=>Dict("\$or"=>concepts),
-                "sourceUri"=>Dict("\$or"=>sources)])...]
-                
+                "conceptUri"=>Dict("\$or"=>concepts)])...],
+                ["sourceUri"=>Dict("\$or"=>source) for source in [sources] if !isnothing(source)]...
                 ]
             )
 end
