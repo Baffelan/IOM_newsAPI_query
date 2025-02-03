@@ -30,6 +30,8 @@ function write_api_request(user, dates; sortby="SocialScore")
         "includeArticleLocation"=>true,
         "resultType"=> "articles",
         "includeArticleConcepts"=>true,
+        "includeArticleDuplicateList"=>true,
+        "includeArticleOriginalArticle"=>true,
         "apiKey"=>authentication()
     )
     return q
